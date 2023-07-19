@@ -16,9 +16,7 @@ public class ClienteServicio {
         System.out.println("1 | Registrar cliente");
         System.out.println("");
         Cliente cli = new Cliente();
-        System.out.print("Ingrese el id: ");
-        cli.setId(leer.nextInt());
-        leer.nextLine();
+        cli.setId(lista.size() + 1);
         System.out.print("Ingrese el nombre: ");
         cli.setNombre(leer.nextLine());
         System.out.print("Ingrese la edad: ");
@@ -87,8 +85,10 @@ public class ClienteServicio {
         for (int i = 0; i < lista.size(); i++) {
             if (idCliente == lista.get(i).getId()) {
                 lista.remove(i);
+                lista.get(i).setId(i + 1);
             }
         }
+
         System.out.println("Eliminando cliente Id: " + idCliente + "...");
         System.out.println("");
         System.out.println("* Cliente eliminado exitosamente *");

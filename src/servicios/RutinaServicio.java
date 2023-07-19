@@ -13,9 +13,7 @@ public class RutinaServicio {
         System.out.println("5 | Crear rutina");
         System.out.println("");
         Rutina ruti = new Rutina();
-        System.out.print("Ingrese el id: ");
-        ruti.setId(leer.nextInt());
-        leer.nextLine();
+        ruti.setId(lista.size() + 1);
         System.out.print("Ingrese el nombre: ");
         ruti.setNombre(leer.nextLine());
         System.out.print("Ingrese la duracion en minutos: ");
@@ -82,6 +80,7 @@ public class RutinaServicio {
         for (int i = 0; i < lista.size(); i++) {
             if (idRutina == lista.get(i).getId()) {
                 lista.remove(i);
+                lista.get(i).setId(i + 1);
             }
         }
         System.out.println("Eliminando rutina Id: " + idRutina + "...");
